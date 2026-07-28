@@ -5,7 +5,8 @@ html {
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
-  background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+  /* Warna diubah seperti gambar screenshot yang Anda lampirkan */
+  background: linear-gradient(120deg, #d3c4ff 0%, #9bc4ff 100%);
 }
 
 .song {
@@ -27,6 +28,16 @@ body {
   position: absolute;
   right: 0;
   top: 20vh;
+}
+
+/* Penambahan CSS Untuk Foto di Awal */
+.intro-pic {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 15px auto;
+  display: block;
 }
 
 .one {
@@ -95,26 +106,29 @@ body {
   font-size: 15rem;
 }
 
-
+/* Perbaikan posisi topi dan foto bagian akhir */
 .six {
   position: relative;
   top: 10vh;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Membuat topi, foto, teks sejajar lurus */
 }
 
-.six img {
-  display: inline-block;
+.six img.profile-picture {
+  display: block;
   height: 350px;
   max-width: 100%;
-  /* height: auto; */
+  border-radius: 20px; /* Sedikit lengkungan pada foto */
 }
 
 .six .hat {
-  left: 10%;
   position: absolute;
-  /* transform: scale(0.1); */
-  top: -35%;
-  width: 80px;
+  top: -80px; /* Menaikkan topi agar pas di atas kepala */
+  left: 50%;
+  transform: translateX(-50%); /* Kunci agar topi selalu di tengah foto */
+  width: 100px;
 }
 
 .baloons img {
@@ -150,70 +164,31 @@ body {
   z-index: -1;
 }
 
-.eight svg:nth-child(1) {
-  fill: #bd6ecf;
-  left: 5vw;
-  top: 7vh;
-}
-
-.eight svg:nth-child(2) {
-  fill: #7dd175;
-  left: 35vw;
-  top: 23vh;
-}
-
-.eight svg:nth-child(3) {
-  fill: #349d8b;
-  left: 23vw;
-  top: 33vh;
-}
-
-.eight svg:nth-child(4) {
-  fill: #347a9d;
-  left: 57vw;
-  top: 43vh;
-}
-
-.eight svg:nth-child(5) {
-  fill: #c66053;
-  left: 7vw;
-  top: 68vh;
-}
-
-.eight svg:nth-child(6) {
-  fill: #bfaa40;
-  left: 77vw;
-  top: 42vh;
-}
-
-.eight svg:nth-child(7) {
-  fill: #e3bae8;
-  left: 83vw;
-  top: 68vh;
-}
-
-.eight svg:nth-child(8) {
-  fill: #8762cb;
-  left: 37vw;
-  top: 86vh;
-}
-
-.eight svg:nth-child(9) {
-  fill: #9a90da;
-  left: 87vw;
-  top: 94vh;
-}
+.eight svg:nth-child(1) { fill: #bd6ecf; left: 5vw; top: 7vh; }
+.eight svg:nth-child(2) { fill: #7dd175; left: 35vw; top: 23vh; }
+.eight svg:nth-child(3) { fill: #349d8b; left: 23vw; top: 33vh; }
+.eight svg:nth-child(4) { fill: #347a9d; left: 57vw; top: 43vh; }
+.eight svg:nth-child(5) { fill: #c66053; left: 7vw; top: 68vh; }
+.eight svg:nth-child(6) { fill: #bfaa40; left: 77vw; top: 42vh; }
+.eight svg:nth-child(7) { fill: #e3bae8; left: 83vw; top: 68vh; }
+.eight svg:nth-child(8) { fill: #8762cb; left: 37vw; top: 86vh; }
+.eight svg:nth-child(9) { fill: #9a90da; left: 87vw; top: 94vh; }
 
 .wish-hbd {
   font-size: 3em;
-  margin: 0;
+  margin: 10px 0 0 0;
   text-transform: uppercase;
 }
 
-.wish h5 {
+.wish h5, .wish h6 {
   font-size: 2rem;
   font-weight: lighter;
   margin: 10px 0 0;
+}
+
+.wish h6 {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .nine p {
@@ -226,31 +201,7 @@ body {
   z-index: 3;
 }
 
-/* Media Queries */
-@media screen and (max-height: 1000px) {
-  .six .hat {
-    left: 10%;
-  }
-}
-
-@media screen and (max-height: 800px) {
-  .six .hat {
-    left: 10%;
-  }
-}
-
-@media screen and (max-height: 700px) {
-  .six .hat {
-    left: 32%;
-  }
-}
-
-@media screen and (max-height: 850px) and (max-width: 450px) {
-  .six .hat {
-    left: 32%;
-  }
-}
-
+/* Media Queries (Versi Mobile yang sudah dirapikan) */
 @media screen and (max-width: 500px) {
   .container {
     width: 90%;
@@ -273,13 +224,8 @@ body {
     font-size: 10rem;
   }
 
-  .six .hat {
-    /* top: -20px; */
-    left: 44%;     /* Mengatur Kiri/Kanan */
-    top: -150px;    /* Mengatur Atas/Bawah */
-    width: 100px;
-  }
-
+  /* .six .hat sudah ter-handle di atas, jadi tidak perlu ditarik manual pakai left/top lagi */
+  
   .wish-hbd {
     font-size: 2.2em;
   }
@@ -290,6 +236,5 @@ body {
 
   .nine p {
     font-size: 1.5rem;
-    font-weight: lighter;
   }
 }
